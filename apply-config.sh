@@ -1,6 +1,6 @@
 #!/bin/sh
-# Reads a JSON config and applies tailscale serve path bindings.
-# Runs on file change via launchd WatchPaths.
+# Reads a JSON config and applies tailscale serve port bindings.
+# Invoked by launchd on file change via WatchPaths.
 set -e
 
 if [ -z "$CONFIG_FILE" ]; then
@@ -15,24 +15,19 @@ fi
 
 echo "$(date): Applying tailscale serve config from $CONFIG_FILE"
 
-HTTPS_PORT=$(python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print(d.get('https_port', 443))" "$CONFIG_FILE")
-
-# Clear existing serve bindings
 tailscale serve reset 2>/dev/null || true
 
-# Apply each route
-python3 - "$CONFIG_FILE" "$HTTPS_PORT" <<'EOF'
+python3 - "$CONFIG_FILE" <<'EOF'
 import json, subprocess, sys
 
 config = json.load(open(sys.argv[1]))
-port   = sys.argv[2]
 
 for route in config.get("routes", []):
-    path   = route["path"]
+    port   = route["https_port"]
     target = route["target"]
-    print(f"  {path} -> {target}")
+    print(f"  port {port} -> {target}")
     subprocess.run(
-        ["tailscale", "serve", f"--https={port}", f"--set-path={path}", "--bg", target],
+        ["tailscale", "serve", f"--https={port}", "--bg", target],
         check=True
     )
 EOF
