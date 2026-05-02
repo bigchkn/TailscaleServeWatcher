@@ -1,0 +1,13 @@
+name = "New Project"
+description = ""
+version = "0.1.0"
+archived_milestones = []
+backlog_path = "roadmap/backlog.toml"
+
+[[milestones]]
+id = "M1"
+name = "Core Implementation"
+description = ""
+status = "todo"
+path = "roadmap/M1.toml"
+designs = []

@@ -1,0 +1,22 @@
+{
+  "TCP": {
+    "443": {
+      "HTTPS": true
+    }
+  },
+  "Web": {
+    "machine-name.your-tailnet.ts.net:443": {
+      "Handlers": {
+        "/api/": {
+          "Proxy": "http://127.0.0.1:8080"
+        },
+        "/dashboard/": {
+          "Proxy": "http://127.0.0.1:3000"
+        },
+        "/files/": {
+          "Path": "/home/user/shared-files"
+        }
+      }
+    }
+  }
+}

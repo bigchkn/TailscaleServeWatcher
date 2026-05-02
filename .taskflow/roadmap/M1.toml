@@ -1,0 +1,155 @@
+[[tasks]]
+id = "TF-1"
+uid = "2c560b62-b1cc-46b6-a05d-80e91db07429"
+title = "Write HLD design document"
+description = ""
+task_type = "feature"
+status = "done"
+priority = 0
+subtask_uids = []
+milestone_id = "M1"
+tags = []
+created_at = "2026-05-02T19:33:15.067234Z"
+updated_at = "2026-05-02T19:38:45.922308Z"
+completed_at = "2026-05-02T19:38:45.922308Z"
+
+[[tasks.designs]]
+design_type = "hld"
+path = "docs/designs/M1/TF-1/hld-tailscaleservewatcher-architecture.md"
+status = "draft"
+created_at = "2026-05-02T19:34:30.839770Z"
+updated_at = "2026-05-02T19:34:30.839770Z"
+
+[tasks.execution]
+agent_id = "Claude"
+start_time = "2026-05-02T19:34:30.835049Z"
+end_time = "2026-05-02T19:38:45.922308Z"
+logs = ["HLD written: launchd WatchPaths + apply-config.sh + install/uninstall scripts"]
+outcome = "success"
+
+[tasks.metadata]
+
+[[tasks]]
+id = "TF-2"
+uid = "5528c61e-4df1-449b-8c1a-d795cee10ad8"
+title = "Write apply-config wrapper script"
+description = ""
+task_type = "feature"
+status = "done"
+priority = 0
+subtask_uids = []
+milestone_id = "M1"
+designs = []
+tags = []
+created_at = "2026-05-02T19:33:15.073017Z"
+updated_at = "2026-05-02T19:39:02.588357Z"
+completed_at = "2026-05-02T19:39:02.588357Z"
+
+[tasks.execution]
+agent_id = "Claude"
+start_time = "2026-05-02T19:38:49.101492Z"
+end_time = "2026-05-02T19:39:02.588356Z"
+logs = ["apply-config.sh: reads CONFIG_FILE env var, validates file exists, runs tailscale serve set-config --all"]
+outcome = "success"
+
+[tasks.metadata]
+
+[[tasks]]
+id = "TF-3"
+uid = "64cbc974-a72b-4ceb-b25e-849c538cbe95"
+title = "Write launchd plist template"
+description = ""
+task_type = "feature"
+status = "done"
+priority = 0
+subtask_uids = []
+milestone_id = "M1"
+designs = []
+tags = []
+created_at = "2026-05-02T19:33:15.077829Z"
+updated_at = "2026-05-02T19:39:10.741907Z"
+completed_at = "2026-05-02T19:39:10.741907Z"
+
+[tasks.execution]
+agent_id = "Claude"
+start_time = "2026-05-02T19:38:49.106318Z"
+end_time = "2026-05-02T19:39:10.741907Z"
+logs = ["plist template with WatchPaths, RunAtLoad, EnvironmentVariables, log paths — placeholders replaced by install.sh"]
+outcome = "success"
+
+[tasks.metadata]
+
+[[tasks]]
+id = "TF-4"
+uid = "83a15e18-a993-4841-b6c3-001fb825816f"
+title = "Write install and uninstall scripts"
+description = ""
+task_type = "feature"
+status = "done"
+priority = 0
+subtask_uids = []
+milestone_id = "M1"
+designs = []
+tags = []
+created_at = "2026-05-02T19:33:15.083159Z"
+updated_at = "2026-05-02T19:39:34.236949Z"
+completed_at = "2026-05-02T19:39:34.236949Z"
+
+[tasks.execution]
+agent_id = "Claude"
+start_time = "2026-05-02T19:38:49.111053Z"
+end_time = "2026-05-02T19:39:34.236948Z"
+logs = ["install.sh: prompts for config path, copies script, generates plist, loads agent; uninstall.sh: unloads and removes"]
+outcome = "success"
+
+[tasks.metadata]
+
+[[tasks]]
+id = "TF-5"
+uid = "c975fb6e-f2f5-4356-9f3e-f1ce42703fbc"
+title = "Write example config file"
+description = ""
+task_type = "feature"
+status = "done"
+priority = 0
+subtask_uids = []
+milestone_id = "M1"
+designs = []
+tags = []
+created_at = "2026-05-02T19:33:15.088309Z"
+updated_at = "2026-05-02T19:39:53.133575Z"
+completed_at = "2026-05-02T19:39:53.133575Z"
+
+[tasks.execution]
+agent_id = "Claude"
+start_time = "2026-05-02T19:38:49.116164Z"
+end_time = "2026-05-02T19:39:53.133575Z"
+logs = ["serve.example.json: HTTPS, multiple path-routed proxies, static file serving"]
+outcome = "success"
+
+[tasks.metadata]
+
+[[tasks]]
+id = "TF-6"
+uid = "6c95b62d-5a16-470b-a782-5af5511070ba"
+title = "Update README"
+description = ""
+task_type = "feature"
+status = "done"
+priority = 0
+subtask_uids = []
+milestone_id = "M1"
+designs = []
+tags = []
+created_at = "2026-05-02T19:33:15.092818Z"
+updated_at = "2026-05-02T19:40:23.327516Z"
+completed_at = "2026-05-02T19:40:23.327516Z"
+
+[tasks.execution]
+agent_id = "Claude"
+start_time = "2026-05-02T19:38:49.121278Z"
+end_time = "2026-05-02T19:40:23.327516Z"
+logs = ["README: install steps, config format, usage, log paths, uninstall"]
+outcome = "success"
+
+[tasks.metadata]
